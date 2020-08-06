@@ -1,0 +1,25 @@
+{
+  "name": "korean-index-of",
+  "version": "1.0.0",
+  "description": "Improved indexOf function for korean incremental search",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ialy1595/korean-index-of.git"
+  },
+  "author": "ialy1595 <ialy12006@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ialy1595/korean-index-of/issues"
+  },
+  "homepage": "https://github.com/ialy1595/korean-index-of#readme",
+  "keywords": [
+    "indexOf",
+    "korean",
+    "incremental",
+    "search"
+  ]
+}
