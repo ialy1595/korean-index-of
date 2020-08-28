@@ -1,6 +1,6 @@
 # korean-index-of
 
-This package is helpful when you implement incremental search in Korean. Korean combines all members of a syllable into one letter. This can be a problem in the search.
+This package is helpful when you implement incremental search in Korean. Korean combines all members of a syllable into one letter, it can be a problem in incremental search.
 
 For example, when you type "code", the process"c", "co", "cod" and "
 code" are all substring of "code" so we can take it with string match function like `indexOf` or `includes`.
@@ -11,7 +11,7 @@ The improved `indexOf` function, `koreanIndexOf` can solve this problem because 
 
 # installation
 
-Install it from npm
+Install it from npm.
 
 ```
 npm install --save korean-index-of
@@ -22,8 +22,8 @@ npm install --save korean-index-of
 ```
 import { koreanIndexOf } from 'korean-index-of';
 
-koreanIndexOf("콛", "코드");
-/// 0
+koreanIndexOf("콛", "내 코드");
+/// 2
 ```
 
 If you want to prototype function of `String` like original `indexOf` function, try using it like this.
@@ -35,11 +35,11 @@ String.prototype.kIndexOf = function(query) {
     return koreanIndexOf(query, this);
 }
 
-"코드".kIndexOf("콛");
-/// 0
+"내 코드".kIndexOf("콛");
+/// 2
 ```
 
-If you want to get all match results, use `koreanAllIndexOf`.It return the results in an array. If there is no match result, it return empty array, `[]`.
+If you want to get all match results, use `koreanAllIndexOf`.It return the result indices in an array. If there is no match result, it return empty array, `[]`.
 
 ```
 import { koreanAllIndexOf } from 'korean-index-of';
@@ -50,7 +50,7 @@ koreanIndexOf("갭", "개와 개불과 개발자 사이의 갭");
 
 # Performance
 
-The [Z algorithm](https://www.geeksforgeeks.org/z-algorithm-linear-time-pattern-searching-algorithm/) is used, so both `koreanIndexOf` and `koreanAllIndexOf` takes a linear time.
+The [Z algorithm](https://www.geeksforgeeks.org/z-algorithm-linear-time-pattern-searching-algorithm/) is used, both `koreanIndexOf` and `koreanAllIndexOf` takes a linear time.
 
 # License
 
