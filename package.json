@@ -21,5 +21,6 @@
     "korean",
     "incremental",
     "search"
-  ]
+  ],
+  "type": "module"
 }

@@ -55,3 +55,31 @@ const factorization = (c) => {
     ]
     return res;
 }
+
+const expendString = (str) => {
+    return str.split('').reduce((a, x, i) => {
+        const fac = factorization(x);
+        for(let ii = 0; ii < fac.length; ii++) {
+            a.str += fac[ii];
+            a.idx.push(ii);
+            a.org.push(i);
+        }
+        return a;
+    }, {str: "", idx: [], org: []})
+}
+
+const koreanAllIndexOf = (query, data) => {
+    const expendedQuery = expendString(query);
+    const expendedData = expendString(data);
+    return zArray(expendedQuery.str, expendedData.str)
+           .filter(x => expendedData.idx[x] === 0)
+           .map(x => expendedData.org[x]);
+}
+
+const koreanIndexOf = (query, data) => {
+    const allRes = koreanAllIndexOf(query, data);
+    if(allRes.length) return allRes[0];
+    return -1;
+}
+
+export {koreanAllIndexOf, koreanIndexOf};
