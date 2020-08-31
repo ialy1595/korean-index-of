@@ -82,4 +82,18 @@ const koreanIndexOf = (query, data) => {
     return -1;
 }
 
-export {koreanAllIndexOf, koreanIndexOf};
+const koreanAllIndexRangeOf = (query, data) => {
+    const expendedQuery = expendString(query);
+    const expendedData = expendString(data);
+    return zArray(expendedQuery.str, expendedData.str)
+           .filter(x => expendedData.idx[x] === 0)
+           .map(x => [expendedData.org[x], expendedData.org[x + expendedQuery.str.length - 1]]);
+}
+
+const koreanIndexRangeOf = (query, data) => {
+    const allRes = koreanAllIndexRangeOf(query, data);
+    if(allRes.length) return allRes[0];
+    return [-1, -1];
+}
+
+export {koreanAllIndexOf, koreanIndexOf, koreanAllIndexRangeOf, koreanIndexRangeOf};
