@@ -37,7 +37,7 @@ koreanIndexOf("o 12 !@ 일ㅇ", "OneTwo 12 !@ 일이");
 /// 5
 ```
 
-If you want to get all the matching results at once, use `koreanAllIndexOf`.It returns the result indices in an array. If there is no match result, it returns empty array, `[]`.
+If you want to get all the matching results at once, use `koreanAllIndexOf`. It returns the result indices in an array. If there is no match result, it returns empty array, `[]`.
 
 ```
 import { koreanAllIndexOf } from 'korean-index-of';
@@ -46,7 +46,7 @@ koreanAllIndexOf("갭", "개와 개불과 개발자 사이의 갭");
 /// [3, 7, 15]
 ```
 
-For some tasks such as highlighting results, matching length will be required. Generally, the length of the query is the same as the length of the match, but it can be different in the case of Korean because Because we don't know the last letter is onset(초성) or coda(종성). End index of matching result can be obtained by `koreanIndexRangeOf` and `koreanAllIndexRangeOf` function. The result is given in the form `[matchStartIndex, matchEndIndex]`. If there is no match result in `koreanIndexRangeOf`, it returns `[-1, -1]`.
+For some tasks such as highlighting results, matching length will be required. Generally, the length of the match is the same as the length of the query, but it can be different in the case of Korean because we don't know the last letter is onset(초성) or coda(종성). The matching range can be obtained by `koreanIndexRangeOf` and `koreanAllIndexRangeOf` function. The result is given in the form `[matchStartIndex, matchEndIndex]`. If there is no match result in `koreanIndexRangeOf`, it returns `[-1, -1]`.
 
 ```
 import { koreanIndexRangeOf, koreanAllIndexRangeOf } from 'korean-index-of';
