@@ -28,6 +28,15 @@ koreanIndexOf("콛", "내 코드");
 /// 2
 ```
 
+Of course, it works well even if there are non-Korean characters.
+
+```
+import { koreanIndexOf } from 'korean-index-of';
+
+koreanIndexOf("o 12 !@ 일ㅇ", "OneTwo 12 !@ 일이");
+/// 5
+```
+
 If you want to get all the matching results at once, use `koreanAllIndexOf`.It returns the result indices in an array. If there is no match result, it returns empty array, `[]`.
 
 ```
