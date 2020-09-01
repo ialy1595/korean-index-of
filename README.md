@@ -1,6 +1,6 @@
 # korean-index-of
 
-This package is helpful when you implement incremental search in Korean. Korean combines all members of a syllable into one letter, it can be a problem in incremental search.
+This package is helpful when you implement incremental search in Korean. Korean combines onset(초성), nucleus(중성), coda(종성) into one letter, it can be a problem in incremental search.
 
 For example, when you type "code", the process "c", "co", "cod" and "
 code" are all substring of "code" so we can take it with string match function like `indexOf` or `includes`.
@@ -56,6 +56,27 @@ koreanIndexRangeOf("콛", "내 코드");
 
 koreanAllIndexRangeOf("갭", "개와 개불과 개발자 사이의 갭");
 /// [[3, 4], [7, 8], [15, 15]]
+```
+
+One of the good search UXs only in Korean is onset search(초성 검색). `koreanOnsetIndexOf` and `koreanAllOnsetIndexOf` function can help implement this.
+
+```
+import { koreanOnsetIndexOf, koreanAllOnsetIndexOf } from 'korean-index-of';
+
+koreanOnsetIndexOf("ㄱㅂ", "개와 개불과 개발자 사이의 갭");
+/// 3
+
+koreanAllOnsetIndexOf("ㄱㅂ", "개와 개불과 개발자 사이의 갭");
+/// [3, 7]
+```
+
+Unfortunately, they works well only when the query consists of onset and non-Korean characters.
+
+```
+import { koreanAllOnsetIndexOf } from 'korean-index-of';
+
+koreanAllOnsetIndexOf("개ㅂ", "개와 개불과 개발자 사이의 갭");
+/// []
 ```
 
 If you want to use those functions in the prototype function of `String` as the original `indexOf` function, try using it like this.

@@ -68,6 +68,10 @@ const expendString = (str) => {
     }, {str: "", idx: [], org: []})
 }
 
+const onsetString = (str) => {
+    return str.split('').map(x => factorization(x)[0]).join('');
+}
+
 const koreanAllIndexOf = (query, data) => {
     const expendedQuery = expendString(query);
     const expendedData = expendString(data);
@@ -96,4 +100,22 @@ const koreanIndexRangeOf = (query, data) => {
     return [-1, -1];
 }
 
-export {koreanAllIndexOf, koreanIndexOf, koreanAllIndexRangeOf, koreanIndexRangeOf};
+const koreanAllOnsetIndexOf = (query, data) => {
+    const onsetData = onsetString(data);
+    return zArray(query, onsetData);
+}
+
+const koreanOnsetIndexOf = (query, data) => {
+    const allRes = koreanAllOnsetIndexOf(query, data);
+    if(allRes.length) return allRes[0];
+    return -1;
+}
+
+export {
+    koreanAllIndexOf, 
+    koreanIndexOf, 
+    koreanAllIndexRangeOf, 
+    koreanIndexRangeOf, 
+    koreanAllOnsetIndexOf, 
+    koreanOnsetIndexOf,
+};
