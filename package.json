@@ -1,6 +1,6 @@
 {
   "name": "korean-index-of",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Improved indexOf function for incremental search in Korean",
   "main": "index.js",
   "scripts": {
